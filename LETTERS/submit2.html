@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wc</title>
+    <link rel="stylesheet"  href="submit-button.css">
+</head>
+<body>
+    <div class="result" id="result">
+        <div class ="headings   ">
+            <h1>WORDS</h1>
+            <h1>CHARACTERS</h1>
+            <h1>NUMBERS</h1>
+        </div>
+    </div>
+    <script>
+        var characters = localStorage.getItem('characters');
+        var words = localStorage.getItem('words');
+        var numbers = localStorage.getItem('numbers');
+
+        console.log("Characters from localStorage:", characters);
+        console.log("Words from localStorage:", words);
+        console.log("Numbers from localStorage:", numbers);
+
+        // Display the results if they are not null
+        if (characters !== null && words !== null && numbers !== null) {
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = `
+                <div class="result-item">
+                    <div class="result-heading">CHARACTERS</div>
+                    <div class="result-count">${characters}</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-heading">WORDS</div>
+                    <div class="result-count">${words}</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-heading">NUMBERS</div>
+                    <div class="result-count">${numbers}</div>
+                </div>
+            `;
+        }
+             else {
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = "No data found. Please go back and enter text.";
+        }
+    </script>
+    
+
+</body>
+</html>
